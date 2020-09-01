@@ -1,0 +1,9 @@
+# Notify the nereus discord of anything that blows up on systemd
+[Unit]
+Description=Send a discord message to the notification channel on a Discord server
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/notify_discord.py %i
+User=root
+Group=systemd-journal

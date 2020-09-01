@@ -1,0 +1,12 @@
+[Unit]
+Description=Backup with restic
+OnFailure=discord-notify@%n.service
+
+[Service]
+Type=simple
+Nice=10
+User=root
+Group=root
+ExecStart=/usr/local/sbin/restic_backup.sh
+# $HOME or $XDG_CACHE_HOME must be set for restic to find /root/.cache/restic/
+Environment="HOME=/root"
